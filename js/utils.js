@@ -69,11 +69,12 @@ export function checkGameStatus(cellValues) {
   });
 
   if (winSetIndex >= 0) {
-    const winValueIndex = checkSetList[winSetIndex][0];
+    const winValueIndex = checkSetList[winSetIndex][1];
     const winValue = cellValues[winValueIndex];
 
     return {
-      status: winValue === CELL_VALUE ? GAME_STATUS.O_WIN : GAME_STATUS.X_WIN,
+      status:
+        winValue === CELL_VALUE.CIRCLE ? GAME_STATUS.O_WIN : GAME_STATUS.X_WIN,
       winPositions: checkSetList[winSetIndex],
     };
   }
